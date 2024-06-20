@@ -1,6 +1,10 @@
 pipeline {
     agent any
- 
+ environment {
+        GIT_REPO = 'https://github.com/shubhangi-zanzane/repo1.git'
+        BRANCH = 'master'
+        HTTPD_DIR = '/var/www/html'
+    }
     stages {
         stage('Checkout') {
             steps {
