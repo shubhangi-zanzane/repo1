@@ -9,9 +9,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-              sh 'echo "Building..."'
-                 sh 'echo "Building..."'
-                 sh 'echo "Building..."'
+              sh 'yum install httpd -y'
+                 sh 'service httpd start'
+                 sh 'cp index.html /var/www/html'
+                sh 'chmod -R 777 index.html /var/www/html/index.html'
             }
         }
     }
