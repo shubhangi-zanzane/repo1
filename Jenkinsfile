@@ -1,16 +1,20 @@
 pipeline {
     agent any
- 
+ environment {
+        GIT_REPO = 'https://github.com/shubhangi-zanzane/repo1.git'
+        BRANCH = 'master'
+        HTTPD_DIR = '/var/www/html'
+    }
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/shubhangi-zanzane/project1.git'
+                git 'https://github.com/shubhangi-zanzane/repo1.git'
             }
         }
         stage('Clean Workspace') 
         {
             steps{
-           git 'https://github.com/shubhangi-zanzane/project1.git'     
+                
           sh 'rm -rf /var/www/html/index.html'
                 sh 'yum install httpd -y'
           
@@ -20,8 +24,13 @@ pipeline {
     
             sh 'chmod -R 777 /var/www/html/index.html'
         }
-    }
+        }
+ }
+}
 
+
+ 
+    
     }
 }
 
