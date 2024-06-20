@@ -5,7 +5,7 @@ pipeline
     stage("git checkout")
     {
       steps{
-       sh 'git https://github.com/shubhangi-zanzane/repo1.git'
+       git 'https://github.com/shubhangi-zanzane/repo1.git'
       }
     }
     stage("indexfile run")
