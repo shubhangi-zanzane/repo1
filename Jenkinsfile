@@ -1,22 +1,21 @@
 pipeline 
-
 {
   agent any
   stages{
     stage("git checkout")
     {
       steps{
-        git https://github.com/shubhangi-zanzane/repo1.git
+       sh 'git https://github.com/shubhangi-zanzane/repo1.git'
       }
     }
     stage("indexfile run")
     {
       steps
       {
-      yum install httpd -y
-      service httpd start
-        cp index.html /var/www/html
-        chmod -R 777 /var/www/html/index.html
+      sh 'yum install httpd -y'
+      sh 'service httpd start'
+        sh 'cp index.html /var/www/html'
+        sh 'chmod -R 777 /var/www/html/index.html'
       }
     }
   }
