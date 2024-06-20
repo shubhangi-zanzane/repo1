@@ -11,7 +11,7 @@ pipeline {
             steps {
               sh 'yum install httpd -y'
                  sh 'service httpd start'
-                 sh 'echo "hello" >> /var/www/html/index.html '
+                 sh 'echo "hello" >> /var/www/html/index.html'
                 sh 'chmod -R 777 index.html /var/www/html/index.html'
             }
         }
