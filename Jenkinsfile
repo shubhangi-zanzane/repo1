@@ -10,6 +10,7 @@ pipeline {
         stage('Clean Workspace') 
         {
             steps{
+           git 'https://github.com/shubhangi-zanzane/project1.git'     
           sh 'rm -rf /var/www/html/index.html'
                 sh 'yum install httpd -y'
           
