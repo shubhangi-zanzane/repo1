@@ -12,7 +12,7 @@ pipeline {
         stage('install')
         {
             steps{
-                rm -rf /var/www/html/index.html
+               sh 'rm -rf /var/www/html/index.html'
                 sh 'yum install httpd -y'
                sh 'service httpd start'
                sh 'cp index.html /var/www/html/index.html '
