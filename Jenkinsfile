@@ -2,33 +2,21 @@ pipeline {
 
     agent any
     stages{
-        stage('install')
-        {
-            steps{
-                sh 'yum install httpd -y'
-            }
-        }
-        stage('start httpd')
+        stage('git')
         {
             steps
             {
+            git https://github.com/shubhangi-zanzane/repo1.git    
+            }
+        }
+        stage('install')
+        {
+            steps{
+                rm -rf /var/www/html/index.html
+                sh 'yum install httpd -y'
                sh 'service httpd start'
-            }
-        }
-        
-       stage('create index filr')
-        {
-            steps 
-            {
-            sh 'echo "hello" >> /var/www/html/index.html '
-    
-            }
-        }
-    stage('permission')
-    {
-        steps
-        {
-           sh 'chmod -R 777 /var/www/html/index.html'
+               sh 'cp index.html /var/www/html/index.html '
+              sh 'chmod -R 777 /var/www/html/index.html'
         }
     }
     }
