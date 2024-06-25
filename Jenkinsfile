@@ -6,7 +6,7 @@ pipeline {
         {
             steps
             {
-            git branch:'master',url:'https://github.com/shubhangi-zanzane/repo1.git'    
+            git branch:'master', url:'https://github.com/shubhangi-zanzane/repo1.git'    
             }
         }
         stage('install')
