@@ -12,7 +12,10 @@ pipeline {
         stage('install')
         {
             steps{
+                
                sh 'docker run -itd httpd'
+               sh 'docker exec -it 7b6e07340b18 bash'
+                sh 'mkdir /usr/local/apache2/htdocs '
                sh 'cp index.html /usr/local/apache2/htdocs '
                 sh 'chmod -R 777 /usr/local/apache2/htdocs/index.html'
                 
