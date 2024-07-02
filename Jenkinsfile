@@ -1,4 +1,4 @@
-erpipeline {
+ierpipeline {
 
     agent any
     stages{
