@@ -12,13 +12,9 @@ pipeline {
         stage('install')
         {
             steps{
-                sh 'docker stop server'
-                sh 'docker system prune -a -f'
-              sh 'docker run -itdp 80:80 --name server httpd bash'
-               //sh 'docker exec -it server bash'
-                sh 'mkdir -p /usr/local/apache2/htdocs '
-               sh 'cp index.html /usr/local/apache2/htdocs '
-                sh 'chmod -R 777 /usr/local/apache2/htdocs/index.html'
+                
+               sh 'cp index.html test:/usr/local/apache2/htdocs '
+                sh 'chmod -R 777 test:/usr/local/apache2/htdocs/index.html'
                 
         }
     }
