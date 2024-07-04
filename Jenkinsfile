@@ -11,10 +11,9 @@ git branch:'master',url:'https://github.com/shubhangi-zanzane/repo1.git'
         stage('httpd')
         {
             steps{
-sh'yum install httpd -y'
-            sh'service httpd start'
-            sh'cp index.html /var/www/html'
-            sh'chmod -R 777 /var/www/html' 
+ sh 'docker run -itdp 80:80 --name server httpd bash'
+                   sh 'cp index.html server:/usr/local/apache2/htdocs '
+                sh 'chmod -R 777 server:/usr/local/apache2/htdocs/index.html'
             
         }
         }
