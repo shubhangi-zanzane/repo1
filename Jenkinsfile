@@ -1,17 +1,24 @@
 pipeline {
-    agent any
- 
-    stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/shubhangi-zanzane/repo1.git'
+agent any
+    stages{
+    stage('git')
+        {
+            steps{
+git branch:'master',url:'https://github.com/shubhangi-zanzane/repo1.git'
+    
             }
         }
-        stage('Build') {
-            steps {
-              sh 'echo "Building..."'
-                          }
+        stage('httpd')
+        {
+            steps{
+sh'yum install httpd'
+            sh'service httpd start'
+            sh'cp index.html /var/www/html'
+            sh'chmod -R 777 /var/www/html' 
+            
         }
+        }
+        
     }
+    
 }
-
