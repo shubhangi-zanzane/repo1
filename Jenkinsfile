@@ -15,7 +15,7 @@ pipeline {
                 sh 'docker system prune -a -f'
                  sh'docker run -dp 81:80 --name test httpd'
                 sh 'rm -rf test:/usr/local/apache2/htdocs/index.html'
-                sh 'mkdir -p test:/usr/local/apache2/htdocs '
+                sh 'docker mkdir -p test:/usr/local/apache2/htdocs '
                sh 'docker cp index.html test:/usr/local/apache2/htdocs '
                 sh 'chmod -R 777 test:/usr/local/apache2/htdocs/index.html'
                 
