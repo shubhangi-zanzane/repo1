@@ -12,7 +12,7 @@ pipeline {
         stage('install')
         {
             steps{
-                 sh'docker run -dp 80:80 --name test httpd'
+                 sh'docker run -dp 90:80 --name test httpd'
                sh 'cp index.html test:/usr/local/apache2/htdocs '
                 sh 'chmod -R 777 test:/usr/local/apache2/htdocs/index.html'
                 
