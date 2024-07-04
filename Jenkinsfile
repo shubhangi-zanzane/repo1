@@ -12,7 +12,7 @@ pipeline {
         stage('install')
         {
             steps{
-                 sh'docker run -dp 8080:80 --name test1 httpd'
+                 sh'docker run -dp 90:80 --name test1 httpd'
                 sh 'rm -rf test1:/usr/local/apache2/htdocs/index.html'
                 sh 'mkdir -p test1:/usr/local/apache2/htdocs '
                sh 'cp index.html test1:/usr/local/apache2/htdocs '
