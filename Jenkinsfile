@@ -12,6 +12,7 @@ pipeline {
         stage('install')
         {
             steps{
+                sh 'docker system prune -a -f'
                  sh'docker run -dp 90:80 --name test2 httpd'
                 sh 'rm -rf test2:/usr/local/apache2/htdocs/index.html'
                 sh 'mkdir -p test2:/usr/local/apache2/htdocs '
