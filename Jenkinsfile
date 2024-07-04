@@ -13,11 +13,11 @@ pipeline {
         {
             steps{
                 sh 'docker system prune -a -f'
-                 sh'docker run -dp 90:80 --name test httpd'
+                 sh'docker run -itdp 90:80 --name test httpd bash'
                 sh 'rm -rf test:/usr/local/apache2/htdocs/index.html'
                 sh 'mkdir -p test:/usr/local/apache2/htdocs '
                sh 'docker cp index.html test:/usr/local/apache2/htdocs '
-                sh 'chmod -R 777 /usr/local/apache2/htdocs/index.html'
+                sh 'chmod -R 777 test:/usr/local/apache2/htdocs/index.html'
                 
         }
     }
