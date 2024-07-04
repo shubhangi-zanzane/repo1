@@ -12,11 +12,11 @@ pipeline {
         stage('install')
         {
             steps{
-                 sh'docker run -dp 90:80 --name test1 httpd'
-                sh 'rm -rf test1:/usr/local/apache2/htdocs/index.html'
-                sh 'mkdir -p test1:/usr/local/apache2/htdocs '
-               sh 'cp index.html test1:/usr/local/apache2/htdocs '
-                sh 'chmod -R 777 test1:/usr/local/apache2/htdocs/index.html'
+                 sh'docker run -dp 90:80 --name test2 httpd'
+                sh 'rm -rf test2:/usr/local/apache2/htdocs/index.html'
+                sh 'mkdir -p test2:/usr/local/apache2/htdocs '
+               sh 'cp index.html test2:/usr/local/apache2/htdocs '
+                sh 'chmod -R 777 test2:/usr/local/apache2/htdocs/index.html'
                 
         }
     }
