@@ -1,8 +1,7 @@
-# Use the official httpd image as a base
-FROM httpd:latest
+FROM tomcat:9-jdk11
 
-# Expose port 80 to the outside world
-EXPOSE 80
+COPY target/your-app.war /usr/local/tomcat/webapps/
 
-# Default command to run when the container starts
-CMD ["httpd-foreground"]
+# Optional: Copy any additional configuration files needed for database connection
+
+CMD ["catalina.sh", "run"]
