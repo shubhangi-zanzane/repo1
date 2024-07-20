@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven 3.9'
-    }
-
     environment {
         DOCKER_IMAGE = "test-image"
         RDS_ENDPOINT = "database-test.cjaum606857y.ap-south-1.rds.amazonaws.com"
