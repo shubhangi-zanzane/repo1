@@ -3,9 +3,18 @@ pipeline{
         label 'built-in'
     }
     stages{
-        stage('stage-1'){
-            steps{
-                echo "this job is running on master node"
+        stage('parrallel-stages'){
+            parallel{
+                stage(stage-1){
+                    steps{
+                        echo "hello world"
+                    }
+                }
+                stage('stage-2'){
+                    steps{
+                        echo "stage -2"
+                    }
+                }
             }
         }
     }
