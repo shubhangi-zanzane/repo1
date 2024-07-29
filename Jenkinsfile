@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage('parrallel-stages'){
             parallel{
-                stage(stage-1){
+                stage('stage-1'){
                     steps{
                         echo "hello world"
                     }
