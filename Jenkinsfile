@@ -1,12 +1,14 @@
 pipeline{
-    agent any
+    agent{
+        label 'built-in'
+        customWorkspace '/data/pipeline'
+    }
     stages{
-        stage('build job'){
+        stage('node-1')
+        {
             steps{
-                
-            build 'job1'
-        }
+                echo "hello world"
+            }
         }
     }
-    
 }
