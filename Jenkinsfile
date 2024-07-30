@@ -1,25 +1,33 @@
-pipeline {
-agent any
+pipeline{
+    agent any
     stages{
-        stage('parallel')
-        {
-            parallel
-        {
-            stage('stage-1')
-            {
-        
+        stage(stage-1){
             steps{
-                echo"hello"
-                
-                  }
+                echo "hello"
             }
-            stage('stage-2'){
-                steps{
-                    echo "hello"
-                     }
-                              }
-
-}
         }
+
+        stage('parallel'){
+            parallel{
+                stage('stage-2'){
+                    steps{
+                        echo"stage-2"
+                    }
+                }
+                stage('stage-3'){
+                    steps{
+                        echo "stage-3"
+                    }
+                }
+            }
+        }
+        stage('stage-4'){
+        steps{
+            echo "hello"
+        }
+        }
+        
+                
+                
+            }
     }
-}
