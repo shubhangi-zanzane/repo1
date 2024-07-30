@@ -2,7 +2,7 @@ pipeline{
     agent{
         label{
         label 'slave-1'
-        customWorkpace '/mnt/velocity'   
+        customWorkspace '/mnt/velocity'   
         }
     }
     stages{
