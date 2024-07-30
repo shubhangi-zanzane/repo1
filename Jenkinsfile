@@ -1,17 +1,30 @@
 pipeline {
-    agent 
-    {
-        label 'built-in' 
+    agent{
+     label{
+            label 'built-in'
+            customWorkspace '/mnt'
+        }
     }
     stages{
-        stage('run job')
-        {
+        stage('1'){
             steps{
-                dir ('/mnt'){
-                    sh 'sudo touch file2'
-                }
+                sh 'sudo touch file3'
+            }
+        }
+
+        stage('node1'){
+        agent{
+            node{
+                label 'slave-1'
+                customWorkspace '/mnt'
+            }
+        }
+            steps{
+                  sh 'sudo touch file3'
             }
         }
         
+        
+        }
+        
     }
-}
