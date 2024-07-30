@@ -1,17 +1,12 @@
 pipeline{
-    agent any
+    agent{
+        label 'slave-1'
+    }
     stages{
-        stage('first')
-        {
+        stage('node'){
             steps{
-                echo "hello world"
+                sh 'mkdir /mnt/velocity'
             }
         }
-        stage('second')
-        {
-            steps{
-                echo "helloworld"
-            }
-        }
-}
+    }
 }
