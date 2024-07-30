@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage('node'){
             steps{
-                sh 'mkdir /mnt/velocity'
+                sh 'sudo mkdir /mnt/velocity'
             }
         }
     }
