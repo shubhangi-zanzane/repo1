@@ -5,6 +5,7 @@ pipeline{
             steps{
                 echo "hello"
             }
+            
         }
 
         stage('parallel'){
