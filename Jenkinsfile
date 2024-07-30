@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage('node'){
             steps{
-                sh 'touch file1'
+                sh 'sudo touch file1'
             }
         }
     }
