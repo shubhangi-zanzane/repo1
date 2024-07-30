@@ -4,7 +4,9 @@ pipeline {
         stage('run job')
         {
             steps{
-                build 'job1'
+                dir ('/mnt'){
+                    sh 'sudo touch file2'
+                }
             }
         }
         
