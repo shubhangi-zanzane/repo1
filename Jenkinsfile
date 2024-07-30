@@ -1,15 +1,25 @@
-pipeline{
-    agent{
-        label{
-        label "built-in"
-        customWorkspace "/mnt"   
-        }
-    }
+pipeline {
+agent any
     stages{
-        stage('node'){
+        stage('parallel')
+        {
+            parallel
+        {
+            stage('stage-1')
+            {
+        
             steps{
-                sh 'sudo touch file1'
+                echo"hello"
+                
+                  }
             }
+            stage('stage-2'){
+                steps{
+                    echo "hello"
+                     }
+                              }
+
+}
         }
     }
 }
